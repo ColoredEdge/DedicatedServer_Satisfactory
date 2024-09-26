@@ -1,0 +1,17 @@
+services:
+  satisfactory-server:
+    build: .
+    volumes:
+      - ./satisfactory_data/server:/home/steam/Server
+      - ./satisfactory_data/saves:/home/steam/.config/Epic/FactoryGame/Saved/SaveGames
+      - ./satisfactory_data/ficsit/installations:/home/steam/.local/share/ficsit
+      - ./satisfactory_data/ficsit/cache:/home/steam/.cache/ficsit
+    ports:
+      - "7777:7777/udp"
+      - "7777:7777/tcp"
+    environment:
+      - STEAM_USER=anonymous
+      - STEAM_PASS=
+      - SATISFACTORY_DB_CODE=1690800
+    stdin_open: true
+    tty: true
