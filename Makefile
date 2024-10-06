@@ -14,7 +14,6 @@ backup:
 install:
 	@echo "Starting installation..."
 	./setup.sh
-	make backup
 	docker compose build
 	docker compose run --rm --entrypoint /home/steam/install.sh satisfactory-server
 
